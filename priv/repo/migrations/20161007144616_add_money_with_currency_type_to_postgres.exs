@@ -5,7 +5,7 @@ defmodule MoneyTest.Repo.Migrations.AddMoneyWithCurrencyTypeToPostgres do
     execute """
       CREATE TYPE public.money_with_currency AS (
         currency_code  char(3),
-        value          numeric(20,8)
+        amount         numeric(20,8)
       )
     """
   end
