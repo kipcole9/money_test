@@ -31,8 +31,8 @@ defmodule MoneyTest.Mixfile do
   defp deps do
     [{:ecto, "~> 2.0"},
      {:postgrex, ">= 0.0.0"},
-     {:ex_cldr, "~> 0.0.4"},
-     {:ex_money, "~> 0.0.4"},
+     {:ex_cldr, "~> 0.0.5"},
+     {:ex_money, "~> 0.0.5"},
      {:gen_stage, "~> 0.4", only: [:dev, :test]}
     ]
   end
