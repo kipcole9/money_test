@@ -8,13 +8,10 @@ defmodule MoneyTest do
 
     # Define workers and child supervisors to be supervised
     children = [
-      # Start the Ecto repository
       supervisor(MoneyTest.Repo, []),
-      # Start the endpoint when the application starts
+      supervisor(Money.ExchangeRates.Supervisor, [[restart: true, start_retriever: false]])
     ]
 
-    # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
-    # for other strategies and supported options
     opts = [strategy: :one_for_one, name: MoneyTest.Supervisor]
     Supervisor.start_link(children, opts)
   end

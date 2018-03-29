@@ -1,9 +1,11 @@
 defmodule Ledger do
-  use Ecto.Schema
+  # use Ecto.Schema
+  use Includes
 
   @primary_key false
   schema "ledgers" do
-    field :amount, Money.Ecto.Type
+    # include Thing
+    field :amount, Money.Ecto.Composite.Type
 
     timestamps()
   end

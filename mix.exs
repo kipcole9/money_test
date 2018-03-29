@@ -4,13 +4,14 @@ defmodule MoneyTest.Mixfile do
   def project do
     [app: :money_test,
      version: "0.0.1",
-     elixir: "~> 1.2",
+     elixir: "~> 1.4",
      elixirc_paths: elixirc_paths(Mix.env),
-     compilers: Mix.compilers,
+     compilers: Mix.compilers ++ [:cldr],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      aliases: aliases(),
-     deps: deps()]
+     deps: deps()
+   ]
   end
 
   # Configuration for the OTP application.
@@ -18,7 +19,7 @@ defmodule MoneyTest.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {MoneyTest, []},
-     applications: [:postgrex, :ecto]]
+     applications: [:postgrex, :ecto, :ex_money]]
   end
 
   # Specifies which paths to compile per environment.
@@ -29,11 +30,12 @@ defmodule MoneyTest.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:ecto, "~> 2.0"},
+    [{:ecto, "~> 2.1"},
      {:postgrex, ">= 0.0.0"},
-     {:ex_cldr, "~> 0.0.5"},
-     {:ex_money, "~> 0.0.5"},
-     {:gen_stage, "~> 0.4", only: [:dev, :test]}
+     # {:ex_money, "~> 1.0"},
+     {:ex_money, path: "../money"},
+     # {:ex_cldr, path: "../cldr", override: true},
+     {:jason, "~> 1.0"}
     ]
   end
 
