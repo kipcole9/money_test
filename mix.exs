@@ -30,8 +30,9 @@ defmodule MoneyTest.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:ecto, "~> 2.1"},
-     {:postgrex, ">= 0.0.0"},
+    [{:ecto, path: "../ecto", override: true}, #"~> 2.1"},
+     {:postgrex, git: "https://github.com/elixir-ecto/postgrex.git", optional: true},
+     {:db_connection, git: "https://github.com/elixir-ecto/db_connection.git", ref: "4947966", override: true},
      # {:ex_money, "~> 1.0"},
      {:ex_money, path: "../money"},
      # {:ex_cldr, path: "../cldr", override: true},
